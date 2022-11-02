@@ -72,8 +72,11 @@ def get_user_full_name_list(min_id: int, max_id: int) -> list:
 def main():
     logging.basicConfig(level=logging.DEBUG)
 
-    # assert get_user_full_name_list(1, 3) == ['Emma Wong', 'George Bluth', 'Janet Weaver']
-    assert get_user_full_name_list(5, 8) == ['Charles Morris', 'Emma Wong', 'Eve Holt', 'Janet Weaver']
+    assert get_user_full_name_list(10, 1) == []
+    assert get_user_full_name_list(None, None) == []
+    assert get_user_full_name_list(1, 3) == ['Emma Wong', 'George Bluth', 'Janet Weaver']
+    assert get_user_full_name_list(5, 8) != ['Charles Morris', 'Emma Wong', 'Eve Holt', 'Janet Weaver']
+    assert get_user_full_name_list(-1, 2) == []
 
 
 if __name__ == "__main__":
