@@ -17,6 +17,9 @@ def get_user_full_name_list(min_id: int, max_id: int) -> list:
     if not isinstance(max_id, int):
         logger.error('Maximal ID value is not integer')
         return []
+    if min_id < 0 or max_id < 0:
+        logger.error('Argument must be a positive')
+        return []
     if min_id > max_id:
         logger.error('Minimal value shall be less or equal to Maximal')
         return []
