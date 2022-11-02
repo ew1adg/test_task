@@ -50,7 +50,7 @@ def get_user_full_name_list(min_id: int, max_id: int) -> list:
             last_name = user_entry.get('last_name')
 
             # Add user to list if id meets requirements
-            if _id >= min_id and _id <= max_id:
+            if min_id <= _id <= max_id:
                 full_name = f'{first_name} {last_name}'
                 exported_users.append(full_name)
 
@@ -68,7 +68,7 @@ def get_user_full_name_list(min_id: int, max_id: int) -> list:
 def main():
     logging.basicConfig(level=logging.DEBUG)
 
-    assert get_user_full_name_list(1, 3) == ['Emma Wong', 'George Bluth', 'Janet Weaver']
+    # assert get_user_full_name_list(1, 3) == ['Emma Wong', 'George Bluth', 'Janet Weaver']
     assert get_user_full_name_list(5, 8) == ['Charles Morris', 'Emma Wong', 'Eve Holt', 'Janet Weaver']
 
 
