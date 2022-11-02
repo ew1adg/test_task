@@ -8,17 +8,18 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 
 
 def get_user_full_name_list(min_id: int, max_id: int) -> list:
-    """  """
+    logger = logging.getLogger(__name__)
 
     # Validate arguments
     if not isinstance(min_id, int):
-        raise ValueError('Minimal id value is not integer')
+        logger.error('Minimal id value is not integer')
+        return []
     if not isinstance(max_id, int):
-        raise ValueError('Maximal ID value is not integer')
+        logger.error('Maximal ID value is not integer')
+        return []
     if min_id > max_id:
-        raise ValueError('Minimal value shall be less or equal to Maximal')
-
-    logger = logging.getLogger(__name__)
+        logger.error('Minimal value shall be less or equal to Maximal')
+        return []
 
     exported_users = list()
 
